@@ -1,6 +1,5 @@
 # **NLW04**
 ## **Trilha Node**
----
 <br>
 
 ### **Como executar:**
