@@ -1,7 +1,9 @@
-import { Entity, PrimaryColumn, Column, CreateDateColumn, ManyToOne, JoinColumn } from "typeorm";
+import {
+  Entity, PrimaryColumn, Column, CreateDateColumn, ManyToOne, JoinColumn,
+} from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import { Survey } from "./Survey";
-import { User } from "./User";
+import { Survey } from './Survey';
+import { User } from './User';
 
 @Entity('surveys_users')
 class SurveyUser {
@@ -30,7 +32,7 @@ class SurveyUser {
 
   constructor() {
     if (!this.id) {
-      this.id = uuid()
+      this.id = uuid();
     }
   }
 }

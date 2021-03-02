@@ -16,7 +16,7 @@ describe('Surveys', () => {
       title: 'Title Example',
       description: 'Description Example',
     });
-  
+
     await surveyRepository.save(survey);
   });
 
@@ -29,10 +29,10 @@ describe('Surveys', () => {
 
   it('should be able to create a new survey', async () => {
     const response = await request(app).post('/surveys')
-    .send({
-      title: 'Title Example',
-      description: 'Description Example',
-    });
+      .send({
+        title: 'Title Example',
+        description: 'Description Example',
+      });
 
     expect(response.status).toBe(201);
     expect(response.body).toHaveProperty('id');

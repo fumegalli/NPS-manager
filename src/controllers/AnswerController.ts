@@ -1,11 +1,11 @@
-import { Request, Response } from "express";
-import { getCustomRepository } from "typeorm";
-import { AppError } from "../errors/AppError";
-import { ErrorMessages } from "../errors/Messages";
-import { SurveyUserRepository } from "../repositories/SurveyUserRepository";
+import { Request, Response } from 'express';
+import { getCustomRepository } from 'typeorm';
+import { AppError } from '../errors/AppError';
+import { ErrorMessages } from '../errors/Messages';
+import { SurveyUserRepository } from '../repositories/SurveyUserRepository';
 
 class AnswerController {
-  async execute(request: Request, response: Response) {
+  static async execute(request: Request, response: Response) {
     const { value } = request.params;
     const { surveyUserId } = request.query;
 

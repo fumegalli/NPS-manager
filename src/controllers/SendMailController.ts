@@ -1,16 +1,16 @@
-import { Request, Response } from "express";
-import { getCustomRepository } from "typeorm";
-import { SurveyRepository } from "../repositories/SurveyRepository";
-import { SurveyUserRepository } from "../repositories/SurveyUserRepository";
-import { UserRepository } from "../repositories/UserRepository";
-import SendMailService from "../services/SendMailService";
+import { Request, Response } from 'express';
+import { getCustomRepository } from 'typeorm';
 import { resolve } from 'path';
-import { AppError } from "../errors/AppError";
-import { ErrorMessages } from "../errors/Messages";
+import { SurveyRepository } from '../repositories/SurveyRepository';
+import { SurveyUserRepository } from '../repositories/SurveyUserRepository';
+import { UserRepository } from '../repositories/UserRepository';
+import SendMailService from '../services/SendMailService';
+import { AppError } from '../errors/AppError';
+import { ErrorMessages } from '../errors/Messages';
 
 class SendMailController {
-  async execute(request: Request, response: Response) {
-    const { email, survey_id } = request.body;
+  static async execute(request: Request, response: Response) {
+    const { email, survey_id: surveyId } = request.body;
 
     const userRepository = getCustomRepository(UserRepository);
     const surveyRepository = getCustomRepository(SurveyRepository);
@@ -20,7 +20,7 @@ class SendMailController {
 
     if (!user) throw new AppError(ErrorMessages.USER_NOT_FOUND, 404);
 
-    const survey = await surveyRepository.findOne({ id: survey_id });
+    const survey = await surveyRepository.findOne({ id: surveyId });
 
     if (!survey) throw new AppError(ErrorMessages.SURVEY_NOT_FOUND, 404);
 
@@ -47,7 +47,7 @@ class SendMailController {
 
     const surveyUser = surveyUserRepository.create({
       user_id: user.id,
-      survey_id,
+      survey_id: surveyId,
     });
 
     await surveyUserRepository.save(surveyUser);

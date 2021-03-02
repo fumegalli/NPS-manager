@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 
-import express, { NextFunction, Request, Response } from 'express';
+import express, { Request, Response } from 'express';
 import 'express-async-errors';
 import { router } from './routes';
 import createConnection from './database';
@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(router);
 
-app.use((err: Error, _: Request, response: Response, _next: NextFunction) => {
+app.use((err: Error, _: Request, response: Response) => {
   if (err instanceof AppError) {
     return response.status(err.statusCode).json({
       message: err.message,

@@ -15,7 +15,7 @@ describe('NPS', () => {
       title: 'Title Example',
       description: 'Description Example',
     });
-  
+
     await surveyRepository.save(survey);
 
     surveyId = survey.id;

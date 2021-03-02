@@ -1,15 +1,15 @@
-import { Request, Response } from "express";
-import { getCustomRepository, Not, IsNull } from "typeorm";
-import { SurveyUserRepository } from "../repositories/SurveyUserRepository";
+import { Request, Response } from 'express';
+import { getCustomRepository, Not, IsNull } from 'typeorm';
+import { SurveyUserRepository } from '../repositories/SurveyUserRepository';
 
 class NpsController {
-  async execute(request: Request, response: Response) {
-    const { survey_id } = request.params;
+  static async execute(request: Request, response: Response) {
+    const { surveyId } = request.params;
 
     const surveyUserRepository = getCustomRepository(SurveyUserRepository);
 
     const answers = await surveyUserRepository.find({
-      survey_id,
+      survey_id: surveyId,
       value: Not(IsNull()),
     });
 
@@ -19,11 +19,11 @@ class NpsController {
 
     answers.forEach((answer) => {
       if (answer.value < 7) {
-        detractors++;
+        detractors += 1;
       } else if (answer.value < 9) {
-        passives++;
+        passives += 1;
       } else {
-        promoters++;
+        promoters += 1;
       }
     });
 
