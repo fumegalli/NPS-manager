@@ -1,6 +1,6 @@
 import { createConnection, getConnection, getCustomRepository } from 'typeorm';
-import { app } from '../app';
 import request from 'supertest';
+import { app } from '../app';
 import { ErrorMessages } from '../errors/Messages';
 import { SurveyUserRepository } from '../repositories/SurveyUserRepository';
 import { UserRepository } from '../repositories/UserRepository';
@@ -29,7 +29,7 @@ describe('Answer', () => {
       title: 'Title Example',
       description: 'Description Example',
     });
-  
+
     await surveyRepository.save(survey);
 
     const surveyUserRepository = getCustomRepository(SurveyUserRepository);
@@ -38,7 +38,7 @@ describe('Answer', () => {
       survey_id: survey.id,
     });
     surveyUserId = surveyUser.id;
-  
+
     await surveyUserRepository.save(surveyUser);
   });
 
@@ -48,7 +48,6 @@ describe('Answer', () => {
     await connection.dropDatabase();
     await connection.close();
   });
-
 
   it('should not be able to create answer when survey user does not exists', async () => {
     const nonExistingId = 'nonExistingId';

@@ -1,0 +1,41 @@
+{
+    "env": {
+        "node": true,
+        "es2020": true,
+        "jest": true
+    },
+    "extends": [
+        "airbnb-base"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "settings": {
+        "import/resolver": {
+            "node": {
+              "extensions": [".js", ".ts"]
+            }
+        }
+    },
+    "rules": {
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+              "js": "never",
+              "mjs": "never",
+              "jsx": "never",
+              "ts": "never",
+              "tsx": "never",
+              "vue": "never"
+            }
+        ],
+        "import/prefer-default-export": "off",
+        "camelcase": ["off", "src/models/**"]
+    }
+}

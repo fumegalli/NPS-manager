@@ -27,7 +27,7 @@ describe('SendMail', () => {
       title: 'Title Example',
       description: 'Description Example',
     });
-  
+
     await surveyRepository.save(survey);
 
     surveyId = survey.id;
@@ -47,9 +47,9 @@ describe('SendMail', () => {
         survey_id: 'id-example',
       });
 
-      expect(response.status).toBe(404);
-      expect(response.body).toHaveProperty('message');
-      expect(response.body.message).toEqual(ErrorMessages.USER_NOT_FOUND);
+    expect(response.status).toBe(404);
+    expect(response.body).toHaveProperty('message');
+    expect(response.body.message).toEqual(ErrorMessages.USER_NOT_FOUND);
   });
 
   it('should not be able to send email when survey does not exists', async () => {
@@ -74,7 +74,7 @@ describe('SendMail', () => {
         email: 'user@example.com',
         survey_id: surveyId,
       });
-    
+
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('id');
     expect(response.body).toHaveProperty('created_at');
