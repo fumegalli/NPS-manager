@@ -3,6 +3,7 @@ import { getCustomRepository } from 'typeorm';
 import { UserRepository } from '../repositories/UserRepository';
 import * as yup from 'yup';
 import { AppError } from '../errors/AppError';
+import { ErrorMessages } from '../errors/Messages';
 
 class UserController {
   async create(request: Request, response: Response) {
@@ -25,7 +26,7 @@ class UserController {
       email
     });
 
-    if (userAlreadyExists) throw new AppError('User already exists!');
+    if (userAlreadyExists) throw new AppError(ErrorMessages.USER_ALREADY_EXISTS);
 
     const user = usersRepository.create({
       name,
