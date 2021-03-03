@@ -1,6 +1,6 @@
 # NPS Manager
-NPS Manager is a tool that allows all kind of companies to know your Net Promoter Score easily.
-<br>It sends emails for the users, show the surveys and get their answer.
+NPS Manager is a tool that allows all kind of companies to know their Net Promoter Score easily.
+<br>It sends emails for the users, show the survey you want, get their answer and calculate the NPS.
 
 ## Prerequisites
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
