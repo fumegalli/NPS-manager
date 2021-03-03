@@ -1,7 +1,7 @@
 {
   "name": "nps-manager",
   "version": "1.0.0",
-  "description": "",
+  "description": "NPS Manager is a tool that allows all kind of companies to know your Net Promoter Score easily.",
   "main": "src/server.ts",
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
