@@ -1,21 +1,23 @@
-# **NLW04**
-## **Trilha Node**
-<br>
+# NPS Manager
+NPS Manager is a tool that allows all kind of companies to know your Net Promoter Score easily.
+<br>It sends emails for the users, show the surveys and get their answer.
 
-### **Como executar:**
+## Prerequisites
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 
-1. Instalar dependências:
+## Intalling NPS Manager
+To install NPS Manager, follow these steps:
+
 ```
 npm ci
 ```
 
-2. Rodar a aplicação:
+## Using NPS Manager
+To use NPS Manager, follow these steps:
+
 ```
 npm run dev
 ```
-<br>
 
-### **Migrations:**
-```
-npm run typeorm migration:run
-```
+### Insomnia Collection
+[Collection](documents/insomnia/Insomnia_2021-03-03.json)
